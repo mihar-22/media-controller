@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <style>
+      media-playback-toggle {
+        position: absolute;
+        bottom: 4px;
+        left: 6px;
+        z-index: 1;
+      }
+
+      media-playback-toggle::part(button) {
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+      }
+
+      media-playback-toggle::part(button):focus {
+        /* Woudn't do this in production. */
+        outline: 0;
+      }
+
+      media-playback-toggle svg {
+        fill: white;
+        opacity: 0;
+        position: absolute;
+        transition: opacity 0.2s ease-out;
+      }
+
+      svg:not([hidden]) {
+        opacity: 1;
+        position: relative;
+      }
+    </style>
+  </head>
+
+  <body>
+    <media-controller>
+      <video
+        slot="media"
+        src="https://stream.mux.com/dGTf2M5TBA5ZhXvwEIOziAHBhF2Rn00jk79SZ4gAFPn8/medium.mp4"
+        poster="https://media-files.vidstack.io/poster.png"
+      ></video>
+
+      <media-playback-toggle>
+        <svg
+          slot="play"
+          xmlns="http://www.w3.org/2000/svg"
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+        >
+          <path d="M8 5v14l11-7z" />
+          <path d="M0 0h24v24H0z" fill="none" />
+        </svg>
+
+        <svg
+          slot="pause"
+          xmlns="http://www.w3.org/2000/svg"
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+        >
+          <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+          <path d="M0 0h24v24H0z" fill="none" />
+        </svg>
+      </media-playback-toggle>
+    </media-controller>
+  </body>
+
+  <script type="module" src="../src/define.ts"></script>
+</html>

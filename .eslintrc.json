@@ -1,0 +1,24 @@
+{
+  "env": {
+    "browser": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "simple-import-sort"],
+  "extends": [
+    "plugin:wc/recommended",
+    "plugin:lit/recommended",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "no-console": "off",
+    "no-underscore-dangle": "off",
+    "default-case": "off",
+    "class-methods-use-this": "off",
+    "max-classes-per-file": "off",
+    "@typescript-eslint/no-unused-expressions": "off",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
+  }
+}
